@@ -315,7 +315,8 @@
             },
             success: function (response) {
               console.log("chirag");
-              if (response.success) {
+              if (response.status == "success") {
+                console.log(response)
                 // showAlert('Login successful! Redirecting...', 'success');
                 // setTimeout(() => {
                 //   window.location.href = '/dashboard';  // Redirect after successful login
