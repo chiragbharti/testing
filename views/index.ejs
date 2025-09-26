@@ -306,6 +306,7 @@
         e.preventDefault();
 
         if (validateForm()) {
+          alert("chirag");
           $.ajax({
             url: '/login',  // Backend URL (change this to your actual endpoint)
             method: 'POST',
@@ -314,12 +315,11 @@
               password: passwordInput.value
             },
             success: function (response) {
-              // Example: check if response indicates success
               if (response.success) {
-                showAlert('Login successful! Redirecting...', 'success');
-                setTimeout(() => {
-                  window.location.href = '/dashboard';  // Redirect after successful login
-                }, 1500);
+                // showAlert('Login successful! Redirecting...', 'success');
+                // setTimeout(() => {
+                //   window.location.href = '/dashboard';  // Redirect after successful login
+                // }, 1500);
               } else {
                 showAlert(response.message || 'Invalid credentials', 'danger');
               }
