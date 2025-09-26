@@ -7,5 +7,10 @@ let con = mysql.createConnection({
   database: "sql12800169"
 });
 
+if(con){
+    console.log("connected")
+}else{
+    console.log("something went wrong");
+}
 
 module.exports = con;
