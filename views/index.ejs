@@ -303,7 +303,6 @@
 
       // Form submission
       loginForm.addEventListener('submit', function (e) {
-        alert(e)
         e.preventDefault();
 
         if (validateForm()) {
@@ -313,10 +312,7 @@
           // In a real application, you would send the data to a server here
           setTimeout(() => {
             showAlert('Login successful! Redirecting...', 'success');
-
-            // Redirect to dashboard or home page after successful login
             setTimeout(() => {
-              // window.location.href = 'dashboard.html';
               alert('Redirecting to dashboard...');
             }, 1500);
             alert("chirag bharti");
