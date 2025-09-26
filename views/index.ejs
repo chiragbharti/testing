@@ -306,40 +306,28 @@
         e.preventDefault();
 
         if (validateForm()) {
-          // Simulate login process
-          showAlert('Logging in...', 'success');
-
-          // In a real application, you would send the data to a server here
-          setTimeout(() => {
-            showAlert('Login successful! Redirecting...', 'success');
-            setTimeout(() => {
-              alert('Redirecting to dashboard...');
-            }, 1500);
-            alert("chirag bharti");
-            $.ajax({
-              url: '/login',  // Backend URL (change this to your actual endpoint)
-              method: 'POST',
-              data: {
-                email: emailInput.value.trim(),
-                password: passwordInput.value
-              },
-              success: function (response) {
-                // Example: check if response indicates success
-                if (response.success) {
-                  showAlert('Login successful! Redirecting...', 'success');
-                  setTimeout(() => {
-                    window.location.href = '/dashboard';  // Redirect after successful login
-                  }, 1500);
-                } else {
-                  showAlert(response.message || 'Invalid credentials', 'danger');
-                }
-              },
-              error: function () {
-                showAlert('Server error. Please try again later.', 'danger');
+          $.ajax({
+            url: '/login',  // Backend URL (change this to your actual endpoint)
+            method: 'POST',
+            data: {
+              email: emailInput.value.trim(),
+              password: passwordInput.value
+            },
+            success: function (response) {
+              // Example: check if response indicates success
+              if (response.success) {
+                showAlert('Login successful! Redirecting...', 'success');
+                setTimeout(() => {
+                  window.location.href = '/dashboard';  // Redirect after successful login
+                }, 1500);
+              } else {
+                showAlert(response.message || 'Invalid credentials', 'danger');
               }
-            });
-
-          }, 1000);
+            },
+            error: function () {
+              showAlert('Server error. Please try again later.', 'danger');
+            }
+          });
         }
       });
 
