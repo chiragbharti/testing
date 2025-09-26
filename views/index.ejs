@@ -304,9 +304,9 @@
       // Form submission
       loginForm.addEventListener('submit', function (e) {
         e.preventDefault();
-
+        alert("chirag");
         if (validateForm()) {
-          alert("chirag");
+          
           $.ajax({
             url: '/login',  // Backend URL (change this to your actual endpoint)
             method: 'POST',
